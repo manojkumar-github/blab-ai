@@ -10,4 +10,4 @@ ASSISTANT = "assistant"
 
 if prompt:
     st.chat_message(USER).write(prompt)
-    st.chat_message(ASSISTANT).write(f"You wrote {reversed(prompt)}")
+    st.chat_message(ASSISTANT).write(f"You wrote {list(reversed(prompt))}")

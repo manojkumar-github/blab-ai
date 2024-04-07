@@ -12,4 +12,4 @@ ASSISTANT = "assistant"
 if prompt:
     st.chat_message(USER).write(prompt)
     message = requests.get('https://blab-backend.onrender.com/')
-    st.chat_message(ASSISTANT).write(f"You wrote {message.status_code}")
+    st.chat_message(ASSISTANT).write(f"You wrote {message.content}")

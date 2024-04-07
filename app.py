@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import requests
 
-st.title('M-AI')
+st.title('Resh-AI')
 
 prompt: str = st.chat_input("Enter a prompt here")
 
@@ -12,4 +12,4 @@ ASSISTANT = "assistant"
 if prompt:
     st.chat_message(USER).write(prompt)
     message = requests.get('https://blab-backend.onrender.com/')
-    st.chat_message(ASSISTANT).write(f"You wrote {message.content}")
+    st.chat_message(ASSISTANT).write(f"Reshma AI wrote {message.content}")

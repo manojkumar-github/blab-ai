@@ -1,6 +1,6 @@
 import streamlit as st
 from dataclasses import dataclass
-
+import requests
 
 @dataclass
 class Message:
@@ -23,6 +23,7 @@ prompt: str = st.chat_input("Enter a prompt here")
 if prompt:
     st.session_state[MESSAGES].append(Message(actor=USER, payload=prompt))
     st.chat_message(USER).write(prompt)
-    response: str = f"You wrote {prompt}"
+    message = requests.get("https://blab-backend.onrender.com/")
+    response: str = f"You wrote {message.content} {prompt}"
     st.session_state[MESSAGES].append(Message(actor=ASSISTANT, payload=response))
     st.chat_message(ASSISTANT).write(response)

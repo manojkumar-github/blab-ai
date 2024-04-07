@@ -23,7 +23,7 @@ prompt: str = st.chat_input("Enter a prompt here")
 if prompt:
     st.session_state[MESSAGES].append(Message(actor=USER, payload=prompt))
     st.chat_message(USER).write(prompt)
-    target_url = "https://blab-backend.onrender.com/"
+    target_url = "https://blab-backend.onrender.com"
     message = requests.post(target_url, json={'message': prompt})
     response: str = f"You wrote {message.text} {prompt}"
     st.session_state[MESSAGES].append(Message(actor=ASSISTANT, payload=response))

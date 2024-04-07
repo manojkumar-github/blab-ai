@@ -25,6 +25,6 @@ if prompt:
     st.chat_message(USER).write(prompt)
     target_url = "https://blab-backend.onrender.com"
     message = requests.post(target_url, json={'message': prompt})
-    response: str = f"{message.text}"
+    response: str = f"{message.text.split('assistant|>')[-1]}"
     st.session_state[MESSAGES].append(Message(actor=ASSISTANT, payload=response))
     st.chat_message(ASSISTANT).write(response)
